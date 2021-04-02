@@ -1,0 +1,31 @@
+#content{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+#content-1{
+    font-size: 50px;
+    font-family: 'Segoe', 'Segoe UI', Arial, 'sans-serif';
+}
+#content-2{
+    font-size: 20px;
+    font-family: 'Segoe', 'Segoe UI', Arial, 'sans-serif';
+}
+#content-getStarted{
+    padding: 15px 25px;
+    font-family: 'Rajdhani', sans-serif;
+    border-radius: 5px;
+    color: aliceblue;
+    background-color: #0078d4;
+    cursor: pointer;
+}
+#content-getStarted:hover{ background-color: #106ebe; }
+#content-learnMore{
+    padding: 15px 25px;
+    font-family: 'Rajdhani', sans-serif;
+    color: #0078d4;
+    cursor: pointer;
+}
+#content-learnMore:hover{ text-decoration: underline; }

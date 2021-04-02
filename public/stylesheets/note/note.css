@@ -1,0 +1,38 @@
+#note{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding:  50px 50px;
+    min-height: 80vh;
+}
+#note-head{
+    width: 100%;
+    border-bottom: 1px solid #aaa;
+    align-self: flex-start;
+    font-size:35px ;
+}
+#note-content{
+    height: 70vh;
+    font-size: 18px;
+    width:900px;
+    padding: 35px;
+    position: relative;
+    text-align:left;
+    overflow-y:overlay;
+}
+#edit{
+    position: absolute;
+    left: 0;top: 0;
+    background-color: #aaa;
+    padding: 1px 10px;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+#edit:hover{
+    color: white;
+    background-color: #777;
+}
+#note-content-value:focus{
+    outline: none;
+}

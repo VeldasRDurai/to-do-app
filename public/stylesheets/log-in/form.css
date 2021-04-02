@@ -1,0 +1,43 @@
+#form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:85vh;
+    width:100%;
+}
+#form-1{
+    padding:120px 0 50px 0;
+    background-color:whitesmoke;
+    box-sizing: border-box;
+    border:1px solid #999;
+    border-radius: 15px;
+    height: 500px;
+    width:400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#form-head{
+    font-size: 25px;
+}
+#form-hr{
+    margin: 10px 0;
+    height:1px;
+    width: 70%;
+    background-color: #999;
+}
+#form-password,#form-username{
+    /* height: 15px;
+    width: 300px; */
+}
+#form-btn{
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    height:30px;
+    width: 100px;
+    background-color: #37a000;
+    color:white;
+    font-size: 20px;
+}

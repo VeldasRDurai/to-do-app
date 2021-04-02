@@ -1,0 +1,45 @@
+#header{
+    height: 10vh;
+    width: 100vw;
+    display:flex;
+    align-items: center;
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+    background-color:#00a573;
+}
+#header-logo{
+    margin-left: 30px;
+    font-family: 'Indie Flower', cursive;
+    font-size:30px;
+    font-weight: 600;
+}
+
+
+/* for home.html */
+#sign-up{
+    flex-grow:0;
+    margin-left: auto;
+}
+#sign-up , #log-in{
+    margin-right: 40px;
+    padding:5px;
+    box-sizing: border-box;
+    border:2px solid white;
+    color: #00a573;
+    background-color: white;
+    border-radius: 17px;
+    cursor: pointer;
+}
+#sign-up:hover , #log-in:hover{
+    border: 2px solid white;
+    color:  white;
+    background-color:#00a573;
+}
+
+
+/* for other pages */
+#username{
+    flex-grow:0;
+    margin-left: auto;
+    margin-right: 40px;
+}
