@@ -1,0 +1,25 @@
+<%- include("layout_H",{ title : "NOTE" }) %> 
+
+<!-- Header Part -->
+<%- include("header",{ title : "note" }) %>
+
+<!-- Notes Part -->
+<link rel="stylesheet" href="stylesheets/note/note.css">
+<div id="note">
+    <div id="note-head" onclick="redirect('dashboard')"> heading : date&time</div>
+    <div id="note-content">
+        <div id="edit" onclick="edit()">Edit</div>
+        <div id="note-content-value" >
+            this is the content.
+        </div>
+    </div>
+</div>
+
+<!-- Footer Part -->
+<%- include("footer.ejs") %> 
+
+<!-- Scripts -->
+<script src="javascripts/redirect.js"></script>
+<script src="javascripts/note.js"></script>
+
+<%- include("layout_F") %> 

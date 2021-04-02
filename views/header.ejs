@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="stylesheets/header.css" >
+<div id="header" >
+    <div id="header-logo"> t-O d-O A/p-Licat-Ion </div>
+    <% if( title=== "home" ){ %>
+        <div id="sign-up" onclick="redirect('sign-up')"> Sign up</div>
+        <div id="log-in"  onclick="redirect('log-in')" > Log in </div>
+    <% } else if ( title==="dashboard" || title==="note"){ %>
+        <div id="username"> USERNAME </div>
+    <%}%>
+</div>

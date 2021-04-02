@@ -1,0 +1,26 @@
+<%- include("layout_H", { title : "LOG IN" }) %> 
+
+<!-- Header Part -->
+<%- include("header"  , { title : "log-in" }) %>
+
+<!-- Form Part -->
+<link rel="stylesheet" href="stylesheets/log-in/form.css">
+<div id="form">
+    <div id="form-1">
+        <div   id="form-head">Log In</div>
+        <input id="form-username" type="text" />
+        <input id="form-password" type="password" />
+        <input id="form-btn" type="button" value="Log In" onclick="redirect('dashboard')" />
+        <div   id="form-hr" ></div>
+        <div   id="form-1-6"> Alread have an account ?</div>
+        <input id="form-btn"type="button" value="Sign Up" onclick="redirect('sign-up')" />
+    </div>
+</div>
+
+<!-- Footer Part -->
+<%- include("footer.ejs") %> 
+
+<!-- Scripts -->
+<script src="javascripts/redirect.js"></script>
+
+<%- include("layout_F") %> 

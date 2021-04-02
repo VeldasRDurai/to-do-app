@@ -18,14 +18,14 @@
 <body>
     <div id="header" >
         <div id="header-logo"> t-O d-O A/p-Licat-Ion </div>
-        <div id="sign-up"> Sign up</div>
-        <div id="log-in" > Log in </div>
+        <div id="sign-up" onclick="redirect('sign-up')"> Sign up</div>
+        <div id="log-in"  onclick="redirect('log-in')" > Log in </div>
     </div>
     <div id="content">
         <div id="content-1"> Express To Do </div>
         <div id="content-2"> To Do gives you focus, from work to play. </div>
         <img id="content-3" src="../images/home-content.png" alt="todo">
-        <div id="content-getStarted">Get Started</div>
+        <div id="content-getStarted" onclick="redirect('log-in')" >Get Started</div>
         <div id="content-learnMore">Learn More</div>
     </div>
     <div id="footer">
@@ -39,5 +39,6 @@
         </div>
         <div id="footer-5">© 2021 @ VeldasRDurai </div>
     </div>
+    <script src="../javascripts/redirect.js"></script>
 </body>
 </html>

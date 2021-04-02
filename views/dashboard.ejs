@@ -1,0 +1,25 @@
+<%- include("layout_H",{ title : "DASHBOARD" }) %> 
+
+<!-- Header Part -->
+<%- include("header",{ title : "dashboard" }) %>
+
+<!-- Dashboard Part -->
+<link rel="stylesheet" href="stylesheets/dashboard/dash-content.css">
+<div id="dash-content">
+    <div id="dash-content-head">
+        Hello USERNAME...
+    </div>
+    <div id="block">
+        <%- include("dashboard-block-item" , { heading : "This is heading 1" , time : "This is date and time 1"}) %>
+        <%- include("dashboard-block-item" , { heading : "This is heading 2" , time : "This is date and time 2"}) %>
+        <%- include("dashboard-block-item" , { heading : "This is heading 3" , time : "This is date and time 3"}) %> 
+    </div>
+</div>
+
+<!-- Footer Part -->
+<%- include("footer.ejs") %> 
+
+<!-- Scripts -->
+<script src="javascripts/redirect.js"></script>
+
+<%- include("layout_F") %> 

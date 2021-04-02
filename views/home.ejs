@@ -1,0 +1,22 @@
+<%- include("layout_H",{ title : "HOME" }) %> 
+
+<!-- Header Part -->
+<%- include("header",{ title : "home" }) %>
+
+<!-- Content Part -->
+<link rel="stylesheet" href="stylesheets/home/content.css">
+<div id="content">
+    <div id="content-1"> Express To Do </div>
+    <div id="content-2"> To Do gives you focus, from work to play. </div>
+    <img id="content-3" src="images/home-content.png" alt="todo">
+    <div id="content-getStarted" onclick="redirect('log-in')" >Get Started</div>
+    <div id="content-learnMore">Learn More</div>
+</div>
+
+<!-- Footer Part -->
+<%- include("footer.ejs") %> 
+
+<!-- Scripts -->
+<script src="javascripts/redirect.js"></script>
+
+<%- include("layout_F") %> 
