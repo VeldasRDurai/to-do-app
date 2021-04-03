@@ -8,9 +8,10 @@
 <div id="form">
     <div id="form-1">
         <div   id="form-head">Log In</div>
-        <input id="form-username" type="text" />
-        <input id="form-password" type="password" />
-        <input id="form-btn" type="button" value="Log In" onclick="redirect('dashboard')" />
+        <input id="form-username" type="text"  value="veldas"/>
+        <input id="form-password" type="password" value="pass"/>
+        <input id="form-btn" type="button" value="Log In" onclick="validation()" />
+        <!-- <input id="form-btn" type="button" value="Log In" onclick="redirect('dashboard')" /> -->
         <div   id="form-hr" ></div>
         <div   id="form-1-6"> Alread have an account ?</div>
         <input id="form-btn"type="button" value="Sign Up" onclick="redirect('sign-up')" />
@@ -22,5 +23,6 @@
 
 <!-- Scripts -->
 <script src="javascripts/redirect.js"></script>
+<script src="javascripts/form.js"></script>
 
 <%- include("layout_F") %> 
