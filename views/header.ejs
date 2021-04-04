@@ -5,6 +5,6 @@
         <div id="sign-up" onclick="redirect('sign-up')"> Sign up</div>
         <div id="log-in"  onclick="redirect('log-in')" > Log in </div>
     <% } else if ( title==="dashboard" || title==="note"){ %>
-        <div id="username"> USERNAME </div>
+        <div id="username"> <%= username %> </div>
     <%}%>
 </div>

@@ -6,6 +6,20 @@
 <!-- Notes Part -->
 <link rel="stylesheet" href="stylesheets/note/note.css">
 <div id="note">
+    <div id="note-head">
+        <div id="note-back" onclick="redirect('dashboard')">&#8592;</div>
+        <div id="note-title">
+            <div id="note-title-1" onclick="changeHeading()"> Heading</div>
+            <div id="note-title-2"> Time   </div>
+        </div>
+        <div id="edit" onclick="edit()">EDIT</div>
+    </div>
+    <div id="note-content">
+        <div id="note-content-value"> This is the content. </div>
+    </div>
+</div>
+<!-- <link rel="stylesheet" href="stylesheets/note/note.css">
+<div id="note">
     <div id="note-head" onclick="redirect('dashboard')"> heading : date&time</div>
     <div id="note-content">
         <div id="edit" onclick="edit()">Edit</div>
@@ -13,7 +27,8 @@
             this is the content.
         </div>
     </div>
-</div>
+</div> -->
+
 
 <!-- Footer Part -->
 <%- include("footer.ejs") %> 

@@ -8,9 +8,20 @@
     align-items: center;
 }
 #dash-content-head{
+    width: 100%;
     align-self: flex-start;
+    display: flex;
+    align-items: center;
+}
+#dash-content-title{
     font-size: 25px;
 }
+#dash-content-new{
+    flex-grow: 0;
+    margin-left: auto;
+    cursor: pointer;
+}
+#dash-content-new:hover{text-decoration: underline;}
 #block{
     width: 1000px;
     /* background-color: teal; */
@@ -19,6 +30,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    cursor: pointer;
 }
 .block-item{
     display: flex;

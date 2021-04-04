@@ -17,10 +17,7 @@ const validation = () => {
         .then(data => {
             console.log('Success:', data);
             if( data.status === 200 ){
-                fetch( "http://localhost:3000/dashboard/")
-                .then( data2 => {
-                    console.log('Success 2 :', data2);
-                })
+                window.location.href = "http://localhost:3000/dashboard";
             }
         })
         .catch((error) => {

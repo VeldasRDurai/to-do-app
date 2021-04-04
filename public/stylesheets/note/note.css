@@ -1,10 +1,61 @@
 #note{
+    display:none;
+}
+#note-head{
+    padding: 0 30px;
+    display: flex;
+    gap: 30px;
+    justify-content: flex-start;
+    align-items: center;
+    min-height:8vh;
+    color:white;
+    background-color: #444;
+}
+#note-back{ cursor: pointer; }
+#note-title-1{
+    font-size: 35px;
+}
+#note-title-1:focus{
+    outline: none;
+}
+#note-content{
+    min-height: 100vh;
+}
+#edit{
+    color: #444;
+    background-color: white;
+    padding: 5px;
+    flex-grow: 0;
+    margin-left: auto;
+    cursor: pointer;
+}
+#note-content{
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding: 30px;
+    background-color: whitesmoke;
+}
+#note-content-value{
+    font-size: 20px;
+    box-sizing: border-box;
+    width: 55%;
+    padding: 40px;
+    background-color: white;
+    box-shadow: 0 0 5px 0 #aaa;
+}
+#note-content-value:focus{
+    outline: none;
+}
+
+/* #note{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
     padding:  50px 50px;
     min-height: 80vh;
+    user-select:text;
 }
 #note-head{
     width: 100%;
@@ -35,4 +86,4 @@
 }
 #note-content-value:focus{
     outline: none;
-}
+} */

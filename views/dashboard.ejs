@@ -7,12 +7,30 @@
 <link rel="stylesheet" href="stylesheets/dashboard/dash-content.css">
 <div id="dash-content">
     <div id="dash-content-head">
-        Hello USERNAME...
+        <div id="dash-content-title"> Hello <%= username %>... </div>
+        <div id="dash-content-new"  > New note + </div>
     </div>
     <div id="block">
-        <%- include("dashboard-block-item" , { heading : "This is heading 1" , time : "This is date and time 1"}) %>
-        <%- include("dashboard-block-item" , { heading : "This is heading 2" , time : "This is date and time 2"}) %>
-        <%- include("dashboard-block-item" , { heading : "This is heading 3" , time : "This is date and time 3"}) %> 
+        <% for( let i=0; i<notes.length ; i++){ %>
+            <% let { heading , id , content } = notes[i] %> 
+            <%- include("dashboard-block-item" , { heading : heading , time : id , content : content} ) %>     
+        <% } %> 
+    </div>
+</div>
+
+<!-- Notes Part -->
+<link rel="stylesheet" href="stylesheets/note/note.css">
+<div id="note">
+    <div id="note-head">
+        <div id="note-back" onclick="showDash()">&#8592;</div>
+        <div id="note-title">
+            <div id="note-title-1"> Heading</div>
+            <div id="note-title-2"> Time   </div>
+        </div>
+        <div id="edit" onclick="edit()">EDIT</div>
+    </div>
+    <div id="note-content">
+        <div id="note-content-value"> This is the content. </div>
     </div>
 </div>
 
@@ -21,5 +39,7 @@
 
 <!-- Scripts -->
 <script src="javascripts/redirect.js"></script>
+<script src="javascripts/dashboard.js"></script>
+<script src="javascripts/note.js"></script>
 
 <%- include("layout_F") %> 

@@ -22,6 +22,20 @@
     </div>
 
     <div id="note">
+        <div id="note-head">
+            <div id="note-back" onclick="redirect('dashboard')">&#8592;</div>
+            <div id="note-title">
+                <div id="note-title-1" onclick="changeHeading()"> Heading</div>
+                <div id="note-title-2"> Time   </div>
+            </div>
+            <div id="edit" onclick="edit()">EDIT</div>
+        </div>
+        <div id="note-content">
+            <div id="note-content-value"> This is the content. </div>
+        </div>
+    </div>
+
+    <!-- <div id="note">
         <div id="note-head"> heading : date&time</div>
         <div id="note-content">
             <div id="edit" onclick="edit()">Edit</div>
@@ -29,7 +43,7 @@
                 this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.this is the content.
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div id="footer">
         <div>Spotted a mistake? Enjoying the project? Any opinions on the website? Let us know!</div>
@@ -42,6 +56,7 @@
         </div>
         <div id="footer-5">© 2021 @ VeldasRDurai </div>
     </div>
+    <script src="../javascripts/redirect.js"></script>
     <script src="../javascripts/note.js"></script>
 </body>
 </html>
