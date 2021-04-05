@@ -7,7 +7,9 @@ const router  = express.Router();
 
 module.exports = ( obj ) => {
 
-    router.post( '/', async (req, res, next) => {
+    const authenticationRouter = require("./authentication");
+    router.use('/' , authenticationRouter({users:obj.users}));
+    router.get( '/', async (req, res, next) => {
         try{
             const payload = await jwt.verify( req.cookies['accessToken'] , process.env.ACCESS_TOKEN_SECRET);
             await obj.users.updateOne( { username : payload.username } , { refreshToken : null } );

@@ -10,7 +10,7 @@ module.exports = ( obj ) => {
     router.use('/' , authenticationRouter({users:obj.users}));
     router.get( '/' , async (req, res, next) => {
         const untitledNote = {
-            id     : new Date().getTime() ,
+            time     : new Date() ,
             heading: "Untitled" ,
             content: "Write something here..."
         }
@@ -21,9 +21,11 @@ module.exports = ( obj ) => {
         await obj.details.updateOne( {username:req.username} , 
             { $push : {  notes : untitledNote } } 
         );
-
-        res.json( { username:req.username , note: untitledNote } );
-        // res.render( "note.ejs", { username:req.username ,  });
+        const userlist2 = await obj.details.findOne({ username : req.username });
+        const newNote = await userlist2.notes.find( (item) => {
+            return item.time.getTime() === untitledNote.time.getTime();
+        });
+        res.json( newNote );
     });
 
     return router;

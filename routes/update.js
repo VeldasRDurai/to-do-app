@@ -1,5 +1,4 @@
 var express = require("express");
-// const path  = require('path');
 var router  = express.Router();
 
 module.exports = ( obj ) => {
@@ -7,10 +6,10 @@ module.exports = ( obj ) => {
     const authenticationRouter = require("./authentication");
     router.use('/' , authenticationRouter({users:obj.users}));
     router.post( '/' , async (req, res, next) => {
-        const user = await obj.details.findOne({username:req.username});
-        await obj.details.updateOne( {username:req.username} , {
-            notes : [ ...user.notes , req.body ]
-        });
+        console.log(req.body._id);
+        await obj.details.updateOne( {'username':req.username , 'notes._id': req.body._id } , 
+            { $set : { 'notes.$.heading' : req.body.heading , 'notes.$.content' : req.body.content } }
+        );
         res.send();
     });
 

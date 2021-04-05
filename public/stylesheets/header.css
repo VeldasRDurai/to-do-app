@@ -39,6 +39,7 @@
 
 /* for other pages */
 #username{
+    cursor: pointer;
     flex-grow:0;
     margin-left: auto;
     margin-right: 40px;

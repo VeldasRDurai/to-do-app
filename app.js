@@ -15,7 +15,7 @@ const accountSchema = new mongoose.Schema ({
   refreshToken : { type : String } ,
 });
 const noteSchema   = new mongoose.Schema({
-  id      : { type : Date   , required: [ true , " No Date specified...!"      ] },
+  time    : { type : Date   , required: [ true , " No Date specified...!"      ] },
   heading : { type : String , default : "Untitled" },
   content : { type : String },
 });

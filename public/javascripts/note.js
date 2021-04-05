@@ -24,7 +24,7 @@ const edit = () => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ id : id , content:content.innerText , heading:heading.innerText }),
+            body: JSON.stringify({ _id : id , content:content.innerText , heading:heading.innerText }),
         })
         .then(data => {
             console.log('Success:', data);

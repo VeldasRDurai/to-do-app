@@ -1,6 +1,7 @@
 var express = require("express");
 const path  = require('path');
 var router  = express.Router();
+const ObjectID = require('mongoose').mongo.ObjectID;
 
 module.exports = ( obj ) => {
     const updateRouter = require("./update");
@@ -16,8 +17,12 @@ module.exports = ( obj ) => {
     router.post( '/' , async (req, res, next) => {
         const userlist = await obj.details.findOne({ username : req.username });
         const note = userlist.notes.find( (item) => {
-            return Math.floor(new Date(item.id).getTime() / 1000) === Math.floor( req.body.id / 1000) ;
+            console.log(JSON.stringify(item._id).trim() +" : "+ typeof(JSON.stringify(item._id)) );
+            console.log(JSON.stringify(req.body._id).slice(0) +" : "+ typeof(JSON.stringify(req.body._id)) )
+
+            return JSON.stringify(item._id).trim() === JSON.stringify(req.body._id).trim() ; 
         });
+        console.log(note);
         res.json(note);
     });
 

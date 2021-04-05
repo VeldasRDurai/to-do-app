@@ -25,7 +25,7 @@ module.exports = ( obj ) => {
             res.render("dashboard.ejs", detailsList );
             // res.json(detailsList);
         }
-    });
+    }); 
 
     return router;
 }

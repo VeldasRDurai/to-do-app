@@ -1,5 +1,5 @@
 #dash-content{
-    height:80vh;
+    min-height:80vh;
     padding: 30px;
     display:flex;
     gap: 30px;
