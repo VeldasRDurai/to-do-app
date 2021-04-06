@@ -25,7 +25,15 @@ module.exports = ( obj ) => {
                 res.clearCookie( "accessToken");
                 res.clearCookie( "refreshToken");
                 res.status(201).send("LOGGED OUT...!");
-            } catch (e) { return res.status(401).send( e ); }
+            } catch {
+                try {
+                    res.clearCookie('session-token');
+                    res.send();
+                    // res.redirect('/log-in');
+                } catch (e) { 
+                    return res.status(401).send( e ); 
+                }
+            }
         }
     });
 

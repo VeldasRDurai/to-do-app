@@ -1,4 +1,4 @@
-const validation = () => {
+const validation = ( loc ) => {
     var username = document.getElementById("form-username").value.trim();
     var password = document.getElementById("form-password").value.trim();
 
@@ -7,7 +7,7 @@ const validation = () => {
     if( valid ){
         const data = { username : username , password : password };
 
-        fetch( "http://localhost:3000/log-in" , {
+        fetch( "http://localhost:3000/"+loc , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -16,12 +16,10 @@ const validation = () => {
         })
         .then(data => {
             console.log('Success:', data);
-            if( data.status === 200 ){
-                window.location.href = "http://localhost:3000/dashboard";
-            }
+            window.location.href = "http://localhost:3000/dashboard";
         })
         .catch((error) => {
-            console.error('Error:', error);
+            console.error('Error:'+ error);
         });
     }
 }

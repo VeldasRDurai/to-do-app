@@ -11,7 +11,7 @@ mongoose.connect( "mongodb://localhost:27017/" + "to-do-app" ,
     { useNewUrlParser:true , useUnifiedTopology: true} );
 const accountSchema = new mongoose.Schema ({
   username : { type : String , required: [ true , " No name specified...!"     ] },
-  password : { type : String , required: [ true , " No password specified...!" ] },
+  password : { type : String },
   refreshToken : { type : String } ,
 });
 const noteSchema   = new mongoose.Schema({
@@ -38,12 +38,14 @@ app.use(cookieParser());
 const homeRouter   = require("./routes/home");
 const logInRouter  = require("./routes/log-in");
 const signUpRouter = require("./routes/sign-up");
+const googleSignInRouter = require('./routes/google-sign-in');
 const logOutRouter = require("./routes/log-out");
 const dashboardRouter = require("./routes/dashboard");
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/log-in',express.static(path.join(__dirname, 'public')));
 app.use('/sign-up',express.static(path.join(__dirname, 'public')));
+app.use('/google-sign-in',express.static(path.join(__dirname, 'public')));
 app.use('/log-out',express.static(path.join(__dirname, 'public')));
 app.use('/dashboard',express.static(path.join(__dirname, 'public')));
 
@@ -51,6 +53,7 @@ app.use('/',homeRouter);
 app.use('/log-in' ,  logInRouter({ users:users }) );
 app.use('/sign-up', signUpRouter({ users:users }) );
 app.use('/log-out', logOutRouter({ users:users }) );
+app.use('/google-sign-in', googleSignInRouter({users:users}) );
 app.use('/dashboard', dashboardRouter({ users:users , details:details }));
 
 // catch 404 and forward to error handler

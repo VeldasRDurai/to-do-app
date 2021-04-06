@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require("express");
 const jwt     = require("jsonwebtoken");
+const verify  = require("./google-authentication");
 
 const router  = express.Router();
 
@@ -23,7 +24,14 @@ module.exports = ( obj ) => {
                 res.cookie( "accessToken" , accessToken  , { path:"/" ,  httpOnly:true , maxAge: 900000 } );
                 res.cookie( "refreshToken", refreshToken , { path:"/" ,  httpOnly:true } );            
                 req.username = payload.username;
-            } catch (e) { return res.status(401).send( e ); }
+            } catch {
+                try {
+                    console.log("google-user");
+                    let token = req.cookies['session-token'];
+                    req.user = await verify(token);
+                    req.username = req.user.email ;
+                } catch (e) { res.redirect("/log-in"); }
+            } 
         }
         next();
     });
