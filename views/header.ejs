@@ -5,7 +5,7 @@
         <div id="sign-up" onclick="redirect('sign-up')"> Sign up</div>
         <div id="log-in"  onclick="redirect('log-in')" > Log in </div>
     <% } else if ( title==="dashboard" || title==="note"){ %>
-        <div id="username" onclick="logOut()"> <%= username %> </div>
+        <div id="username" onclick="logOut()"> <%= name %> </div>
         <script src="javascripts/log-out.js"></script>
     <%}%>
 </div>

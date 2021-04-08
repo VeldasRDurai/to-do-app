@@ -13,14 +13,17 @@ module.exports = ( obj ) => {
     router.use('/note', noteRouter({ users:obj.users , details:obj.details }) );
 
     // dashboard 
-
+    // console.log("as");
     const authenticationRouter = require("./authentication");
-    router.use('/' , authenticationRouter({users:obj.users})); 
+    router.use('/' , authenticationRouter({users:obj.users}));
+    // console.log("bs"); 
     router.get('/' , async (req, res, next) => {
-        const detailsList = await obj.details.findOne({ username : req.username });
+        // console.log(req.email);
+        const userslist   = await obj.users.findOne({ email : req.email });
+        const detailsList = await obj.details.findOne({ email : req.email });
         if (detailsList === null){
-            res.render("dashboard.ejs",{ username:req.username , notes:[] });
-            // res.json({ username:req.username , notes:[] });
+            res.render("dashboard.ejs",{ email:req.email , name:userslist.name , notes:[] });
+            // res.json({ email:req.email , notes:[] });
         } else {
             res.render("dashboard.ejs", detailsList );
             // res.json(detailsList);

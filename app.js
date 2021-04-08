@@ -10,7 +10,12 @@ const app = express();
 mongoose.connect( "mongodb://localhost:27017/" + "to-do-app" , 
     { useNewUrlParser:true , useUnifiedTopology: true} );
 const accountSchema = new mongoose.Schema ({
-  username : { type : String , required: [ true , " No name specified...!"     ] },
+  email : { type : String , required: [ true , " No email specified...!"     ] },
+  name  : { type : String , required: [ true , " No name specified...!"     ] },
+  // images : { data: Buffer, type: String  }
+  googleSignIn : { type : Boolean , default : false } ,
+  verifiedUser : { type : Boolean , default : false } ,
+  verificationCode :  { type : String } ,
   password : { type : String },
   refreshToken : { type : String } ,
 });
@@ -20,7 +25,8 @@ const noteSchema   = new mongoose.Schema({
   content : { type : String },
 });
 const detailsSchema = new mongoose.Schema ({
-  username : { type : String , required: [ true , " No name specified...!"     ] },
+  email : { type : String , required: [ true , " No name specified...!"     ] },
+  name  : { type : String , required: [ true , " No name specified...!"     ] },
   notes    : { type : [noteSchema] },
 });
 const users   = mongoose.model( "Users" , accountSchema );

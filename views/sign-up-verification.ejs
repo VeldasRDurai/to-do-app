@@ -1,0 +1,27 @@
+<%- include("layout_H", { title : "SIGN UP" }) %> 
+
+<!-- Header Part -->
+<%- include("header"  , { title : "sign-up" }) %>
+
+<!-- Form Part -->
+<link rel="stylesheet" href="stylesheets/log-in/form.css">
+<div id="back-form">
+    <div id="result"> Write the verification code from our mail : </div>
+    <div id="form">
+        <div class="txt-input" id="verification-code" onclick="remove(this)" >  
+            <div class="txt-label"> Verification Code </div>
+            <div id="verification-code-txt" class="txt" onblur="addIfNotEmpyt(this)"></div>
+        </div>
+        <div class="button" onclick="codeVerification()"> Submit </div>
+    </div>
+</div>
+
+
+<!-- Footer Part -->
+<%- include("footer.ejs") %> 
+
+<!-- Scripts -->
+<script src="javascripts/form.js"></script>
+<script src="javascripts/redirect.js"></script>
+
+<%- include("layout_F") %> 

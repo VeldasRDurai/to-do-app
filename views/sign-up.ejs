@@ -5,23 +5,48 @@
 
 <!-- Form Part -->
 <link rel="stylesheet" href="stylesheets/log-in/form.css">
-<div id="form">
+<!-- <div id="form">
     <div id="form-1">
         <div   id="form-head">Sign Up</div>
         <input id="form-username" type="text" />
         <input id="form-password" type="password" />
         <input id="form-btn" type="button" value="Sign Up" onclick="validation('sign-up')"/>
-        <%- include('google-sign-in') %> 
+        < include('google-sign-in') > 
         <div   id="form-hr" ></div>
         <div   id="form-1-6"> New here ?</div>
         <input id="form-btn"type="button" value="Log In" onclick="redirect('log-in')" />
     </div>
+</div> -->
+
+<div id="back-form">
+    <div id="result"> Write your details below: </div>
+    <div id="form">
+        <div class="txt-input" id="email" onclick="remove(this)" >  
+            <div class="txt-label"> Email Address </div>
+            <div id="email-txt" class="txt" onblur="addIfNotEmpyt(this)"></div>
+        </div>
+        <div class="txt-input" id="name" onclick="remove(this)">
+            <div class="txt-label"> Name </div>
+            <div id="name-txt" class="txt" onblur="addIfNotEmpyt(this)"></div>
+        </div>
+        <div class="txt-input" id="password" onclick="remove(this)">
+            <div class="txt-label"> Password </div>
+            <div id="password-txt" class="txt" onblur="addIfNotEmpyt(this)" onchange="hidePassword()"></div>
+        </div>
+        <div class="button" onclick="validation('sign-up')"> Sign Up </div>
+        <%- include('google-sign-in') %> 
+        <div   id="form-hr" ></div>
+        <div   id="form-1-6"> New here ?</div>
+        <div class="button" onclick="redirect('log-in')"> Log In </div>
+    </div>
 </div>
+
 
 <!-- Footer Part -->
 <%- include("footer.ejs") %> 
 
 <!-- Scripts -->
+<script src="javascripts/form.js"></script>
 <script src="javascripts/redirect.js"></script>
 
 <%- include("layout_F") %> 

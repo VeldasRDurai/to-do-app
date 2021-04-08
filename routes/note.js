@@ -15,7 +15,7 @@ module.exports = ( obj ) => {
     const authenticationRouter = require("./authentication");
     router.use('/' , authenticationRouter({users:obj.users}));
     router.post( '/' , async (req, res, next) => {
-        const userlist = await obj.details.findOne({ username : req.username });
+        const userlist = await obj.details.findOne({ email : req.email });
         const note = userlist.notes.find( (item) => {
             console.log(JSON.stringify(item._id).trim() +" : "+ typeof(JSON.stringify(item._id)) );
             console.log(JSON.stringify(req.body._id).slice(0) +" : "+ typeof(JSON.stringify(req.body._id)) )

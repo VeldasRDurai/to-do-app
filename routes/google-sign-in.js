@@ -8,16 +8,18 @@ module.exports = obj => {
     router.post( '/', async (req, res, next) => {
         try {
             let token = req.body.token;
-            console.log(token);
+            // console.log(token);
             let payload = await verify(token); 
-            const userlist = await obj.users.findOne({ username : payload.email });
+            const userlist = await obj.users.findOne({ email : payload.email });
             if (userlist === null){
-                const userdata   = { username : payload.email };
+                const userdata   = { email : payload.email , name : payload.name , googleSignIn : true };
                 await obj.users(userdata).save();
+            } else if ( !userlist.googleSignIn ){
+                res.send(401).send("YOU ARE NOT A GOOGLE USER")
             }
             res.cookie('session-token',token);
             res.send('success');
-        } catch (e) { res.send(e); }
+        } catch (e) { res.status(500).send(e); }
     });
     return router;
 }

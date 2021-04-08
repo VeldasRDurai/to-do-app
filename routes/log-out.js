@@ -12,16 +12,16 @@ module.exports = ( obj ) => {
     router.get( '/', async (req, res, next) => {
         try{
             const payload = await jwt.verify( req.cookies['accessToken'] , process.env.ACCESS_TOKEN_SECRET);
-            await obj.users.updateOne( { username : payload.username } , { refreshToken : null } );
+            await obj.users.updateOne( { email : payload.email } , { refreshToken : null } );
             res.clearCookie( "accessToken");
             res.clearCookie( "refreshToken");
             res.status(201).send("LOGGED OUT...!");
         } catch {
             try{
                 const payload = await jwt.verify( req.cookies['refreshToken'] , process.env.REFRESH_TOKEN_SECRET);
-                const user = await obj.users.findOne({ username : payload.username });
+                const user = await obj.users.findOne({ email : payload.email });
                 if ( user.refreshToken !== req.cookies['refreshToken'] ) throw ("TOKEN NOT MATCHING TOKEN IN DATABASE") ;
-                await obj.users.updateOne( { username : payload.username } , { refreshToken : null } );
+                await obj.users.updateOne( { email : payload.email } , { refreshToken : null } );
                 res.clearCookie( "accessToken");
                 res.clearCookie( "refreshToken");
                 res.status(201).send("LOGGED OUT...!");

@@ -7,7 +7,7 @@ module.exports = ( obj ) => {
     router.use('/' , authenticationRouter({users:obj.users}));
     router.post( '/' , async (req, res, next) => {
         console.log(req.body._id);
-        await obj.details.updateOne( {'username':req.username , 'notes._id': req.body._id } , 
+        await obj.details.updateOne( {'email':req.email , 'notes._id': req.body._id } , 
             { $set : { 'notes.$.heading' : req.body.heading , 'notes.$.content' : req.body.content } }
         );
         res.send();

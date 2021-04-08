@@ -14,14 +14,15 @@ module.exports = ( obj ) => {
             heading: "Untitled" ,
             content: "Write something here..."
         }
-        const userlist = await obj.details.findOne({ username : req.username });
-        if (userlist === null){
-            await obj.details({ username : req.username }).save();
+        const userlist  = await obj.users.findOne({ email : req.email });
+        const detailslist = await obj.details.findOne({ email : req.email });
+        if (detailslist === null){
+            await obj.details({ email : req.email , name : userlist.name }).save();
         }
-        await obj.details.updateOne( {username:req.username} , 
+        await obj.details.updateOne( {email:req.email} , 
             { $push : {  notes : untitledNote } } 
         );
-        const userlist2 = await obj.details.findOne({ username : req.username });
+        const userlist2 = await obj.details.findOne({ email : req.email });
         const newNote = await userlist2.notes.find( (item) => {
             return item.time.getTime() === untitledNote.time.getTime();
         });

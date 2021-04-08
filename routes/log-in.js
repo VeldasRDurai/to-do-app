@@ -14,16 +14,19 @@ module.exports = ( obj ) => {
 
     router.post( '/', async (req, res, next) => {
         try { 
-            const user = await obj.users.findOne({ username : req.body.username });
+            const user = await obj.users.findOne({ email : req.body.email });
             if( user === null ){
                 res.status(401).send("NO SUCH USERS");
+            } else if( user.googleSignIn ){
+                res.status(401).send("YOU ARE GOOGLE USER");
             } else if( await bcrypt.compare( req.body.password , user.password ) ){
-                const accessToken  = jwt.sign({username:user.username} , process.env.ACCESS_TOKEN_SECRET , {expiresIn:"15m"} );
-                const refreshToken = jwt.sign({username:user.username} , process.env.REFRESH_TOKEN_SECRET );
-                await obj.users.updateOne( {username:req.body.username} , {refreshToken:refreshToken} );
+                const accessToken  = jwt.sign({email:user.email} , process.env.ACCESS_TOKEN_SECRET , {expiresIn:"15m"} );
+                const refreshToken = jwt.sign({email:user.email} , process.env.REFRESH_TOKEN_SECRET );
+                await obj.users.updateOne( {email:req.body.email} , {refreshToken:refreshToken} );
                 res.cookie( "accessToken" , accessToken  , { path:"/" ,  httpOnly:true , maxAge: 900000  } );
                 res.cookie( "refreshToken", refreshToken , { path:"/" ,  httpOnly:true } );            
-                res.send("LOGGED IN...!");
+                // res.send("LOGGED IN...!");
+                res.redirect('/dashboard');
             } else {
                 res.status(401).send("WRONG PASSWORD");   
             }
