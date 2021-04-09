@@ -19,6 +19,10 @@ module.exports = ( obj ) => {
                 res.status(401).send("NO SUCH USERS");
             } else if( user.googleSignIn ){
                 res.status(401).send("YOU ARE GOOGLE USER");
+            } else if ( !user.verifiedUser ){
+                res.status(401).send("YOU ARE USING ACCOUT THAT NOT VERIFIED YET");                
+                // console.log("not a verified user");
+                // res.redirect('/sign-up');
             } else if( await bcrypt.compare( req.body.password , user.password ) ){
                 const accessToken  = jwt.sign({email:user.email} , process.env.ACCESS_TOKEN_SECRET , {expiresIn:"15m"} );
                 const refreshToken = jwt.sign({email:user.email} , process.env.REFRESH_TOKEN_SECRET );

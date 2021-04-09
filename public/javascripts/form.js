@@ -53,7 +53,7 @@ const validation = ( loc ) => {
             console.log('Success:', data);
             if ( data.status === 200 ){
                 if(  loc === 'sign-up'){
-                    window.location.href = "http://localhost:3000/sign-up/sign-up-verifictaion";
+                    window.location.href = "http://localhost:3000/sign-up/sign-up-verification";
                 } else {
                     window.location.href = "http://localhost:3000/dashboard";
                 }
@@ -62,7 +62,9 @@ const validation = ( loc ) => {
                     console.log(msg);
                     // document.getElementById('result').style.color = "red" ;
                     document.getElementById('result').innerText = "*" + msg ;
-                })
+                });
+            } else {
+                    document.getElementById('result').innerText = "*" + data.statusText ;
             }
         })
         .catch((error) => {

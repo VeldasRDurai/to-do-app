@@ -10,11 +10,15 @@ module.exports = ( obj ) => {
 
     const authenticationRouter = require("./authentication");
     router.use('/' , authenticationRouter({users:obj.users}));
-    router.post( '/', async (req, res, next) => {
+    router.get('/' , async (req , res , next) => {
+        res.render('sign-up-verification');
+    });
+    router.post('/', async (req, res, next) => {
         try{
             const userslist   = await obj.users.findOne({ email : req.email });
             if (await bcrypt.compare( req.body.verificationCode , userslist.verificationCode )){
-                await obj.users.updateOne( {email:req.body.email} , { verifiedUser : true } );
+                let w = await obj.users.updateOne( {email : req.email} , { verifiedUser : true } );
+                console.log(w);
                 res.redirect('/dashboard');
             } else {
                 res.status(401).send("WRONG PASSWORD");   
