@@ -12,6 +12,8 @@ module.exports = ( obj ) => {
         try{
             if (req.cookies['accessToken'] === undefined ) throw ("NO ACCESS TOKEN");
             const payload = await jwt.verify( req.cookies['accessToken'] , process.env.ACCESS_TOKEN_SECRET);
+            const user = await obj.users.findOne({ email : payload.email });
+            if( !user.verifiedUser ) throw ("NOT A VERIFIED USER");
             req.email = payload.email;
             next();
         } catch {
@@ -19,6 +21,7 @@ module.exports = ( obj ) => {
                 if (req.cookies['refreshToken'] === undefined ) throw ("NO ACCESS TOKEN");
                 const payload = await jwt.verify( req.cookies['refreshToken'] , process.env.REFRESH_TOKEN_SECRET);
                 const user = await obj.users.findOne({ email : payload.email });
+                if (!user.verifiedUser ) throw ("NOT A VERIFIED USER");
                 if ( user.refreshToken !== req.cookies['refreshToken'] ) throw ("TOKEN NOT MATCHING TOKEN IN DATABASE") ;
                 const accessToken  = jwt.sign({ email : payload.email } , process.env.ACCESS_TOKEN_SECRET , { expiresIn : "15m" });
                 const refreshToken = jwt.sign({ email : payload.email } , process.env.REFRESH_TOKEN_SECRET );

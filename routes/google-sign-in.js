@@ -15,7 +15,7 @@ module.exports = obj => {
                 const userdata   = { email : payload.email , name : payload.name , googleSignIn : true };
                 await obj.users(userdata).save();
             } else if ( !userlist.googleSignIn ){
-                res.send(401).send("YOU ARE NOT A GOOGLE USER")
+                res.send(401).send("YOU ARE NOT A GOOGLE USER");
             }
             res.cookie('session-token',token);
             res.send('success');

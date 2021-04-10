@@ -26,6 +26,8 @@ module.exports = ( obj ) => {
     router.post( '/', async (req, res, next) => {
         try{
             const userlist = await obj.users.findOne({ email : req.body.email });
+            console.log("database : " + userlist );
+            console.log(req.body);
             if (userlist === null || !userlist.verifiedUser ){
                 try{
                     const verificationCode  = Math.floor( (Math.random() * 999999) + 1 );
@@ -33,7 +35,7 @@ module.exports = ( obj ) => {
                     let transporter = nodemailer.createTransport({
                         service: 'gmail' ,
                         host: "smtp.gmail.com", 
-                        port: 587, 
+                        port: 465, 
                         secure: false, 
                         requiresAuth: true,
                         auth: { 
@@ -43,6 +45,9 @@ module.exports = ( obj ) => {
                             clientSecret : process.env.CLIENT_SECRET ,
                             refreshToken : process.env.REFRESH_TOKEN ,
                             accessToken  : googleAccessToken
+                        },      
+                        tls:{
+                            rejectUnAuthorized:true
                         }
                     });
                     // const transporter = nodemailer.createTransport({

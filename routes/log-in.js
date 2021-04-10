@@ -20,7 +20,7 @@ module.exports = ( obj ) => {
             } else if( user.googleSignIn ){
                 res.status(401).send("YOU ARE GOOGLE USER");
             } else if ( !user.verifiedUser ){
-                res.status(401).send("YOU ARE USING ACCOUT THAT NOT VERIFIED YET");                
+                res.status(401).send("YOU ARE USING ACCOUNT THAT IS NOT VERIFIED YET");                
                 // console.log("not a verified user");
                 // res.redirect('/sign-up');
             } else if( await bcrypt.compare( req.body.password , user.password ) ){
