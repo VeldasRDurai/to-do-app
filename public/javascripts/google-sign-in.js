@@ -11,10 +11,14 @@ const onSignIn = async (googleUser) => {
     .then( res  => res.json())
     .then( data => {
         console.log(data);
+        document.getElementById('result').innerText = data ;
         signOut();
         location.assign('/dashboard');
     })
-    .catch( e => console.log(e))
+    .catch( e => {
+        console.log(e);
+        document.getElementById('result').innerText = e ;
+    })
 }
 function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();

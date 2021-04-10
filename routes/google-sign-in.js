@@ -14,11 +14,14 @@ module.exports = obj => {
             if (userlist === null){
                 const userdata   = { email : payload.email , name : payload.name , googleSignIn : true };
                 await obj.users(userdata).save();
+                res.cookie('session-token',token);
+                res.send('success');
             } else if ( !userlist.googleSignIn ){
-                res.send(401).send("YOU ARE NOT A GOOGLE USER");
+                res.status(401).send("YOU ARE NOT A GOOGLE USER");
+            } else {
+                res.cookie('session-token',token);
+                res.send('success');
             }
-            res.cookie('session-token',token);
-            res.send('success');
         } catch (e) { res.status(500).send(e); }
     });
     return router;

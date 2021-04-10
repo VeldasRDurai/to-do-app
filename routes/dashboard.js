@@ -4,13 +4,16 @@ var router  = express.Router();
 
 module.exports = ( obj ) => {
     const newNoteRouter = require("./new-note");
-    const noteRouter   = require("./note");
+    const noteRouter    = require("./note");
+    const profileRouter = require("./profile");
        
     router.use('/new-note',express.static(path.join(__dirname, 'public')));
     router.use('/note',express.static(path.join(__dirname, 'public')));
+    router.use('/profile',express.static(path.join(__dirname, 'public')));
      
     router.use('/new-note', newNoteRouter({ users:obj.users , details:obj.details }) );
     router.use('/note', noteRouter({ users:obj.users , details:obj.details }) );
+    router.use('/profile', profileRouter({ users:obj.users , details:obj.details }) );
 
     // dashboard 
     // console.log("as");

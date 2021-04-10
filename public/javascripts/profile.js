@@ -1,3 +1,7 @@
+const hideProfile = () => {
+    console.log("hidede ");
+    document.getElementById('profile').style.display = "none";
+}
 const logOut = () => {
     let conformation = window.confirm("Do you want to log Out ?");
     if( conformation ){

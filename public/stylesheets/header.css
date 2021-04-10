@@ -6,6 +6,7 @@
     font-family: 'Rajdhani', sans-serif;
     color: white;
     background-color:#00a573;
+    position: relative;
 }
 #header-logo{
     margin-left: 30px;

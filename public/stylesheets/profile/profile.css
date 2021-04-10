@@ -1,0 +1,46 @@
+#profile{
+    position: absolute;
+    top: 80%;
+    right:2%;
+    display: none ;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 25px 10px;
+    height: 350px;
+    width: 250px;
+    color: black;
+    background-color : whitesmoke;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0 #999;
+    /* border: 1px solid black; */
+}
+#profile > div {
+    word-break: break-word;
+    text-align: center;
+}
+#pro-names{
+    display: flex;
+}
+#pro-img{
+    height: 70px;
+    width: 70px;
+    clip-path: circle(35px);
+}
+#pro-name-edit{
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+}
+#log-out{
+    /* height: 20px;
+    width: 80%; */
+    color: white;
+    background-color: black;
+    padding: 0 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
