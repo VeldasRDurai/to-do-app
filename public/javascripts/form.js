@@ -32,7 +32,7 @@ const validationSignUp = () => {
     // create a function to cheack validation
     let valid = true;
     if( valid ){
-        fetch( "https://to-do-app-das.herokuapp.com/sign-up" , {
+        fetch( "http://localhost:3000/sign-up" , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ const validationSignUp = () => {
         .then(data => {
             console.log('Success:', data);
             if ( data.status === 200 ){
-                window.location.href = "https://to-do-app-das.herokuapp.com/sign-up/sign-up-verification";
+                window.location.href = "http://localhost:3000/sign-up/sign-up-verification";
             } else if( data.status !== 500 ) {
                 data.text().then( msg => {
                     console.log(msg);
@@ -70,7 +70,7 @@ const validationLogIn = () => {
     // create a function to cheack validation
     let valid = true;
     if( valid ){
-        fetch( "https://to-do-app-das.herokuapp.com/log-in" , {
+        fetch( "http://localhost:3000/log-in" , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ const validationLogIn = () => {
         .then(data => {
             console.log('Success:', data);
             if ( data.status === 200 ){
-                window.location.href = "https://to-do-app-das.herokuapp.com/dashboard";
+                window.location.href = "http://localhost:3000/dashboard";
             } else if( data.status !== 500 ) {
                 data.text().then( msg => {
                     console.log(msg);
@@ -111,7 +111,7 @@ const codeVerification = () => {
     // create a function to cheack validation
     let valid = true;
     if( valid ){
-        fetch( "https://to-do-app-das.herokuapp.com/sign-up/sign-up-verification" , {
+        fetch( "http://localhost:3000/sign-up/sign-up-verification" , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -121,7 +121,7 @@ const codeVerification = () => {
         .then(data => {
             console.log('Success:', data);
             if ( data.status === 200 ){
-                window.location.href = "https://to-do-app-das.herokuapp.com/dashboard";
+                window.location.href = "http://localhost:3000/dashboard";
             } else if ( data.status === 500 ) {
                 console.log(data);
             } else {
@@ -154,7 +154,7 @@ const validation = ( loc ) => {
             data = { email : email , password : password };
         }
         console.log(data);
-        fetch( "https://to-do-app-das.herokuapp.com/"+loc , {
+        fetch( "http://localhost:3000/"+loc , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -165,9 +165,9 @@ const validation = ( loc ) => {
             console.log('Success:', data);
             if ( data.status === 200 ){
                 if(  loc === 'sign-up'){
-                    window.location.href = "https://to-do-app-das.herokuapp.com/sign-up/sign-up-verification";
+                    window.location.href = "http://localhost:3000/sign-up/sign-up-verification";
                 } else {
-                    window.location.href = "https://to-do-app-das.herokuapp.com/dashboard";
+                    window.location.href = "http://localhost:3000/dashboard";
                 }
             } else if( data.status !== 500 ) {
                 data.text().then( msg => {

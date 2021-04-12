@@ -1,6 +1,6 @@
 const showProfile = () => {
     console.log("show profile");
-    fetch("https://to-do-app-das.herokuapp.com/dashboard/profile")
+    fetch("http://localhost:3000/dashboard/profile")
     .then( res => res.json() )
     .then( data => {
         let pro = document.getElementById('profile');

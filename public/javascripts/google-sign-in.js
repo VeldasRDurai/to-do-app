@@ -1,7 +1,7 @@
 const onSignIn = async (googleUser) => {
     console.log("reached in side onsignin js");
     var id_token = await googleUser.getAuthResponse().id_token;
-    fetch( "https://to-do-app-das.herokuapp.com/google-sign-in" , {
+    fetch( "http://localhost:3000/google-sign-in" , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

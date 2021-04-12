@@ -1,7 +1,7 @@
 const showNote = ( e ) => {
     const id = e.id;
     // console.log(id);
-    fetch( "https://to-do-app-das.herokuapp.com/dashboard/note" , {
+    fetch( "http://localhost:3000/dashboard/note" , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ const showNote = ( e ) => {
 }
 
 const newNote = () => {
-    fetch( "https://to-do-app-das.herokuapp.com/dashboard/new-note" )
+    fetch( "http://localhost:3000/dashboard/new-note" )
         .then(response => response.json() )
         .then(data => {
             console.log('Success:', data);

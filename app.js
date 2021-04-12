@@ -7,8 +7,8 @@ const mongoose     = require("mongoose");
 
 const app = express();
 
-// mongoose.connect( "mongodb://localhost:27017/" + "to-do-app" , 
-mongoose.connect( "mongodb+srv://VeldasRDurai:" + process.env.MONGODB_PASSWORD + "@cluster0.do7n3.mongodb.net/" + "to-do-app" + "?retryWrites=true&w=majority" ,
+mongoose.connect( "mongodb://localhost:27017/" + "to-do-app" , 
+// mongoose.connect( "mongodb+srv://VeldasRDurai:" + process.env.MONGODB_PASSWORD + "@cluster0.do7n3.mongodb.net/" + "to-do-app" + "?retryWrites=true&w=majority" ,
     { useNewUrlParser:true , useUnifiedTopology: true} );
 const accountSchema = new mongoose.Schema ({
   email : { type : String , required: [ true , " No email specified...!"     ] },
