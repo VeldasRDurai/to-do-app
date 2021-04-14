@@ -19,7 +19,7 @@ const edit = () => {
         var id = document.getElementById("note").className;
         document.getElementById("edit").innerText = "EDIT" ;
 
-        fetch( "http://localhost:3000/dashboard/note/update" , {
+        fetch( "https://to-do-app-das.herokuapp.com/dashboard/note/update" , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

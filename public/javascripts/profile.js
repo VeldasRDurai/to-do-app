@@ -5,10 +5,10 @@ const hideProfile = () => {
 const logOut = () => {
     let conformation = window.confirm("Do you want to log Out ?");
     if( conformation ){
-        fetch( "http://localhost:3000/log-out" )
+        fetch( "https://to-do-app-das.herokuapp.com/log-out" )
         .then(data => {
             console.log('Success:', data);
-            window.location.replace("http://localhost:3000/");
+            window.location.replace("https://to-do-app-das.herokuapp.com/");
         })
         .catch((error) => {
             console.error('Error:', error);
