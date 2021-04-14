@@ -12,11 +12,21 @@
     background-color: #444;
 }
 #note-back{ cursor: pointer; }
+#note-title{
+    width: 60%;
+    overflow: hidden;
+}
 #note-title-1{
-    font-size: 35px;
+    text-align: left;
+    font-size: 35px;    
+    word-wrap: normal;
+    overflow: hidden;
 }
 #note-title-1:focus{
     outline: none;
+}
+#note-title-2{
+    text-align: left;
 }
 #note-content{
     min-height: 100vh;
@@ -39,51 +49,45 @@
 #note-content-value{
     font-size: 20px;
     box-sizing: border-box;
-    width: 55%;
+    width: 75%;
     padding: 40px;
     background-color: white;
     box-shadow: 0 0 5px 0 #aaa;
+    text-align: left;
+    overflow: overlay;
 }
 #note-content-value:focus{
     outline: none;
 }
 
-/* #note{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    padding:  50px 50px;
-    min-height: 80vh;
-    user-select:text;
+/***------------------------------------------------------------------------***/
+@media (max-width: 640px) {
+    #note-content{
+        padding: 0;
+    }
+    #note-content-value{
+        width: 100%;
+        padding: 35px 15px;
+        text-align: left;
+    }
+    #note-head {
+        gap: 0;
+        height: auto;
+        flex-direction: column;
+        margin-left: 0px;
+        padding: 10px 30px;
+    }
+    #note-title{
+        width: 100%;
+    }
+    #note-title-1{
+        overflow: overlay;
+        text-align: center;
+    }
+    #note-title-2{
+        text-align: center;
+    }
+    #edit{
+        margin-left: 0px;
+    }
 }
-#note-head{
-    width: 100%;
-    border-bottom: 1px solid #aaa;
-    align-self: flex-start;
-    font-size:35px ;
-}
-#note-content{
-    height: 70vh;
-    font-size: 18px;
-    width:900px;
-    padding: 35px;
-    position: relative;
-    text-align:left;
-    overflow-y:overlay;
-}
-#edit{
-    position: absolute;
-    left: 0;top: 0;
-    background-color: #aaa;
-    padding: 1px 10px;
-    border: 1px solid black;
-    border-radius: 8px;
-}
-#edit:hover{
-    color: white;
-    background-color: #777;
-}
-#note-content-value:focus{
-    outline: none;
-} */

@@ -3,3 +3,6 @@ body{
     user-select: none;
     overflow-x: hidden;
 }
+body > div {
+    text-align: center;
+}

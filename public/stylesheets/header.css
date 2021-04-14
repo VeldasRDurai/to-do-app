@@ -6,7 +6,6 @@
     font-family: 'Rajdhani', sans-serif;
     color: white;
     background-color:#00a573;
-    position: relative;
 }
 #header-logo{
     margin-left: 30px;
@@ -44,4 +43,45 @@
     flex-grow:0;
     margin-left: auto;
     margin-right: 40px;
+    position: relative;
+}
+
+/***------------------------------------------------------------------------***/
+@media (max-width: 640px) {
+    #header{
+        height: auto;
+        flex-direction: column;
+        gap: 5px;
+        box-sizing: border-box;
+        padding: 20px 10px;
+        align-items: stretch;
+        /* color: #000; */
+    }
+    #header-logo{
+        margin-left: 0;
+        padding: 20px;
+    }
+    #sign-up , #log-in{
+        padding: 0;
+        border-radius: 5px;
+        margin-right: 0;
+        font-weight: 900;
+        box-shadow: 0px 2px 0px 0 #000;
+    }
+    #sign-up{
+        margin-left: initial;
+    }
+    /* for other pages */
+    #username{
+        cursor: pointer;
+        flex-grow:1;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+/***----------------------------------------------------------------***/
+@media (max-width: 319px) {
+    #header-logo{
+        font-size:25px;
+    }
 }

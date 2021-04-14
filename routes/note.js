@@ -22,7 +22,7 @@ module.exports = ( obj ) => {
 
             return JSON.stringify(item._id).trim() === JSON.stringify(req.body._id).trim() ; 
         });
-        console.log(note);
+        // console.log(note);
         res.json(note);
     });
 

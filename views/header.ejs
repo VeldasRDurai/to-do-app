@@ -5,8 +5,10 @@
         <div id="sign-up" onclick="redirect('sign-up')"> Sign up</div>
         <div id="log-in"  onclick="redirect('log-in')" > Log in </div>
     <% } else if ( title==="dashboard" || title==="note"){ %>
-        <div id="username" onclick="showProfile()"> <%= name %> </div>
-        <%- include('profile.ejs') %>
+        <div id="username" onclick="showProfile()"> 
+            <%= name %> 
+            <%- include('profile.ejs') %>
+        </div>
     <%}%>
 </div>
 <script src="javascripts/header.js"></script>

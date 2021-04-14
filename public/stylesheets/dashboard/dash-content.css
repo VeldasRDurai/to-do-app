@@ -23,7 +23,7 @@
 }
 #dash-content-new:hover{text-decoration: underline;}
 #block{
-    width: 1000px;
+    width: 80%;
     /* background-color: teal; */
     display: flex;
     gap:15px;
@@ -44,7 +44,58 @@
 }
 .block-item-head{
     font-size: 20px;
+    overflow: hidden;
+    text-align: left;
 }
 .block-item-time{
     text-align: end;
+}
+
+/***--------------------------------------------***/
+@media (max-width: 640px) {
+    #dash-content{
+        padding: 30px 10px;
+    }
+    #dash-content-head{
+        flex-direction: column;
+        gap: 10px;
+    }
+    #dash-content-new{
+        border-radius: 5px;
+        margin-left: 0;
+        color: white;
+        background-color: seagreen;
+        padding: 5px;
+    }
+    #block{
+        flex-direction: row;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .block-item{
+        max-height: 180px;
+        min-height: 70px;
+        width: 45%;
+        padding: 10px;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .block-item-head{
+        width: 100%;
+        text-align: center;
+    }
+    .block-item-time{    
+        width: 100%;
+        text-align: center;
+    }
+}
+/***--------------------------------------------***/
+@media (max-width: 320px) {
+    .block-item{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
 }

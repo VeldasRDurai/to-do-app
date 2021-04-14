@@ -26,6 +26,7 @@
     color: #999;
 }
 .txt{
+    text-align: left;
     color: black;
     display: none;
     max-width: 100%;
@@ -35,22 +36,6 @@
     width: 100%;
 }
 .txt:focus{ outline: none; }
-/* #message{
-    height: 250px;
-    width: 80%;
-    border-radius: 5px;
-    background-color: whitesmoke;
-    box-sizing: border-box;
-    padding: 10px 20px;
-    word-wrap: break-word;
-}
-#message-txt{
-    word-wrap: break-word;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    font-size:13px;
-} */
 #back-form {
     font-family: 'Poppins', sans-serif;
     font-size:15px;
@@ -90,46 +75,21 @@
     cursor: pointer;
     font-size: 13px;
 }
-/* #form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height:85vh;
-    width:100%;
+
+
+@media (max-width: 640px) {
+    .button{
+        background-image: linear-gradient( 270deg , #6d1ed9 , #28016c);
+        width: 90%;
+    }
+    .button:hover{
+        background-image: linear-gradient( 90deg , #6d1ed9 , #28016c);
+    }
+    .txt-input{
+        width:90%;
+    }
+    #form{
+        background-color:#17005800;
+        width: 100%;
+    }
 }
-#form-1{
-    padding:120px 0 50px 0;
-    background-color:whitesmoke;
-    box-sizing: border-box;
-    border:1px solid #999;
-    border-radius: 15px;
-    height: 500px;
-    width:400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-}
-#form-head{
-    font-size: 25px;
-}
-#form-hr{
-    margin: 10px 0;
-    height:1px;
-    width: 70%;
-    background-color: #999;
-}
-#form-password,#form-username{
-    /* height: 15px; */
-    /* width: 300px; */
-/* } 
-#form-btn{
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    height:30px;
-    width: 100px;
-    background-color: #37a000;
-    color:white;
-    font-size: 20px;
-} */
